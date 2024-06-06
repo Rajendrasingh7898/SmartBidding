@@ -1,0 +1,51 @@
+{% extends 'adminhome.html' %}
+{% block page %}
+<center>
+       <div style="height:auto;">
+        <h4 style="color:blue">welcome to  {{sunm}}</h4>
+
+       <h2>views and manage users </h2>
+       <tr><td colspan="10" ><hr/> </td></tr>
+
+       <table>
+        <tr>
+            <th>regid</th>
+            <th>name</th>
+            <th>username</th>
+            <th>mobile</th>
+            <th>address</th>
+            <th>city</th>
+            <th>gender</th>
+            <th>info</th>
+            <th>status</th>
+            <th>action</th>
+           
+            <tr><td colspan="10" ><hr> </td></tr>
+
+            {% for row in userDetails %}
+            <tr>
+                <td>{{row.regid}}</td>  
+                <td>{{row.name}}</td>
+                <td>{{row.username}}</td>
+                <td>{{row.mobile}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.city}}</td>
+                <td>{{row.gender}}</td>
+                <td>{{row.info}}</td>
+         
+                <td>                      
+                {% if row.status %}
+                <a href="/myadmin/manageuserstatus/?status=block&regid={{row.regid}}" style="color:orange;">Block user</a>
+                {% else %}
+                <a href="/myadmin/manageuserstatus/?status=verify&regid={{row.regid}}" style="color:green;" style="color:green;">Verify user</a>
+                {% endif %}
+            </td>
+               <th> <a href="/myadmin/manageuserstatus/?status=delete&regid={{row.regid}}" style="color:red;" style="color:red;">Delete user</a></th>
+        </tr>
+            <tr><td colspan="10" ><hr/> </td></tr>
+             
+            {% endfor %}
+       </table>
+       </div>
+    </center>
+       {% endblock  %}

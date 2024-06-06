@@ -1,0 +1,80 @@
+{% extends 'userhome.html' %}
+{% block menu %}	
+       <ul>
+           <li class="first"><a href="/user/">UserHome</a></li>
+           
+           <!--<li>
+               <span class="opener"><b>Pages</b></span>
+               <ul>
+                   <li><a href="#">Blog</a></li>
+                   <li><a href="#">Portfolio</a></li>
+               </ul>
+           </li>-->
+           <li><a href="/user/funds/">Funds</a></li>
+           {% comment %} <li><a href="/user/addproduct/">Addpro</a></li>               {% endcomment %}
+           <li><a href="/user/cpuser/">ChangePass</a></li>
+           <li><a href="/user/edit/">EditPro</a></li>
+           <li><a href="/user/bid/">bid</a>|
+
+           <a href="/user/transactions/">Hist</a></li>
+           <li><a href="/user/viewbidproduct/">ViewPro</a></li>
+           <li class="last"><a href="/Login/">Logout</a></li></ul>
+       
+           
+    
+Welcome User : <font color="blue">{{sunm}}</font>
+       {% endblock  %}
+
+       {% block slider %}
+       {% endblock %}
+       {% block page %}
+       <div style="height:350px;">
+            
+            <br>
+            {% if status %}
+            <h2>Bidding Completed</h2>
+            <a>click to view bid result</a>
+            {% else %}
+            <h1>Bid Product Here</h1>
+            <br/>
+
+
+       <form method="post" action="/user/bid/" >
+        {% csrf_token %}
+        <font color="blue" style="font-size:20px;">{{output}}</font>
+        <label>ProductID</label>    
+        <input type="text" name="pid" value="{{pDetails.pid}}" readonly />
+        <br/><br/>
+        <label>Base Price</label>    
+        <input type="text" name="bprice" value="{{pDetails.baseprice}}" readonly />
+        <br/><br/>
+        <label>Current Price</label>    
+        <input type="text" name="cprice" value="{{cprice}}" />
+        <br/><br/>
+        <label>Your Bid Price</label>    
+        <input type="text" name="bidprice"  />
+        <br/><br/>
+        <input type="submit" value="Bid Product" />
+        </form>
+        
+        {% endif %}
+
+    <p>
+        {% if status %}
+            <h2>Bidding Completed</h2>
+            <a>Click to view bid result</a>
+        {% else %}
+            <h2>Remaining Time: {{ remaining_time }}</h2>
+            <form method="post" action="/user/bid/">
+                {% csrf_token %}
+                <!-- Your existing form fields -->
+    
+            </form>
+            
+        {% endif %}
+        </p>  
+    {% endblock %}
+      
+
+           {% block footer %}
+           {% endblock %}

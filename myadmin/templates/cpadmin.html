@@ -1,0 +1,38 @@
+{% extends 'adminhome.html' %}
+{% block page %}
+<center>
+       <div style="height:250px;">
+      
+<div class="box">
+       <h4 style="color:blue">welcome to  {{sunm}}</h4>
+ 
+       <div style="min-height:200px;">
+
+        <h2>Change Password Here!!!</h2>
+        <font color="blue">{{output}}</font>
+        <form method="POST" action="/myadmin/cpadmin/" >
+        {% csrf_token %}    
+        <table cellspacing="10">
+        <tr>
+        <td>Old password</td>
+        <td><input type="password" name="opass" placeholder="Enter Old Password" required /></td>    
+        </tr>    
+        <tr>
+        <td>New Password</td>
+        <td><input type="password" name="npass" placeholder="Enter New Password" required /></td>    
+        </tr>
+        <tr>
+        <td>Confirm New Password</td>
+        <td><input type="password" name="cnpass" placeholder="Enter Confirm New Password" required /></td>    
+        </tr>
+        <tr>
+        <td><input type="submit" name="s" value="Change Password" /></td>    
+        </tr>
+        </table>    
+        </form>
+    
+    </div>
+</div>
+       </center>
+ 
+       {% endblock  %} 

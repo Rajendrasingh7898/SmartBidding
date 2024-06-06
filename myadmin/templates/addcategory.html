@@ -1,0 +1,30 @@
+{% extends 'adminhome.html' %}
+{% block page %}
+<center>
+       <div style="height:250px;">
+      
+<div class="box">
+       <h4 style="color:blue">welcome to  {{sunm}}</h4>
+ 
+    <h2>Add Category  Here!!!</h2>
+    <font color="blue">{{output}}</font>
+    <form method="POST" action="/myadmin/addcategory/" enctype="multipart/form-data" >
+    {% csrf_token %}    
+    <table cellspacing="10">
+    <tr>
+    <td>Category name</td>
+    <td><input type="text" name="categoryname" placeholder="Enter category name" required /></td>    
+    </tr>    
+    <tr>
+    <td></font>Category Icon</td>
+    <td><input type="file" name="categoryicon"  required /></td>    
+    </tr>
+    <tr>
+    <td><input type="submit" name="s" value="Add Category" /></td>    
+    </tr>
+    </table>    
+    </form>
+</div>
+       </center>
+ 
+       {% endblock  %} 

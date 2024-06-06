@@ -1,0 +1,106 @@
+{% extends 'userhome.html' %}
+{% block menu %}	
+       <ul>
+           <li class="first"><a href="/user/">UserHome</a></li>
+           
+           <!--<li>
+               <span class="opener"><b>Pages</b></span>
+               <ul>
+                   <li><a href="#">Blog</a></li>
+                   <li><a href="#">Portfolio</a></li>
+               </ul>
+           </li>-->
+           <li><a href="/user/funds/">Funds</a></li>
+           {% comment %} <li><a href="/user/addproduct/">Addpro</a></li> {% endcomment %}
+           <li><a href="/user/cpuser/">ChangePass</a></li>
+           <li><a href="/user/edit/">EditPro</a></li>
+           <li><a href="/user/transactions/">Hist</a></li>
+           <li><a href="/user/bid/">bid</a>|
+            <a href="/user/viewbidproduct/">ViewPro</a></li>
+           <li class="last"><a href="/Login/">Logout</a></li></ul>
+       
+           
+    
+       {% endblock  %}
+
+       {% block slider %}
+       {% endblock %}
+       {% block page %}
+       Welcome User : <font color="blue">{{sunm}}</font>
+
+       <div style="height:450px;">
+
+
+
+       <h2>welcome to addproduct </h2>
+
+       <form method="post" action="/user/addproduct/">
+
+        {% csrf_token %}
+        <fieldset>
+          <legend>AddProduct:</legend>
+          <tr> 
+          <td>PRODUCT TITLE</td>
+          <input class="btmspace-15" type="text" name="ptitle" placeholder="Enter product title Here&hellip;">
+        </tr></br>
+        <tr>
+            <td>Category</td>
+            <td>
+            <select name="category" style="width:30%;">
+            <option>Select Category</option>
+                <option>Athletic shoes</option>
+                <option>Ballet shoes</option>
+                <option>Boat shoes</option>
+                <option>Clogs shoes</option>
+                <option>Loafers shoes</option>
+                <option>Oxford shoes</option>
+                <option>Strappy shoes</option>
+                <option>Slingbacks shoes</option>
+        </select>
+            </td>
+         </tr>
+        </br>
+         <tr>
+            <td>Sub Category</td>
+            <td>
+            <select name="subcategory" style="width:30%;">
+            <option style="height:100px">Select Sub Category</option>
+            <option>Athletic shoes</option>
+                <option>Leather</option>
+                <option>Cotton</option>
+                <option>Plastic</option>
+                <option>soft</option>
+                <option>Hard</option>
+                <option>other</option>
+
+            </select>
+        </td>
+        </tr>
+        <tr>
+        </br>
+        <td>BasePrice</td>
+          <input class="btmspace-15" type="text" name="baseprice" placeholder="Enter Baseprice Here&hellip;">
+        </tr>
+    </br>
+        <tr>
+        <td>Product description</td>
+        </tr>
+        <tr>
+        <td ><textarea style="color:black" rows="2" cols="30" name="pdescription" placeholder="Enter product description"></textarea></td>
+                
+    </tr>
+        
+        <br>
+        <br>
+        <button type="submit" value="Add Product">Submit</button>
+        </fieldset>
+      </form>
+
+       
+       </div>
+
+
+       {% endblock  %}
+
+           {% block footer %}
+           {% endblock %}

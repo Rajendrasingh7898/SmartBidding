@@ -1,0 +1,32 @@
+ {% extends 'master_template.html' %}
+ {% block menu %}	
+		<ul>
+			<li class="first"><a href="/myadmin/">AdminHome</a></li>
+			<li><a href="/myadmin/manageusers/">mangeusers</a></li>
+	<li><span class="opener">mang.cat</span>
+				<ul>
+					<li><a href="/myadmin/addcategory/">AddCat </a></li>
+					<li><a href="/myadmin/addsubcategory/">AddSubCat</a></li>
+				</ul>
+			</li>
+			
+<li>				  <a href="/myadmin/cpadmin/">ChangePass</a></li>
+<li> <a href="/myadmin/epadmin/">Edit Profile</a></li>
+						<li><a href="/myadmin/addproducts/">AddProd</a></li>
+
+			<li class="last"><a href="/Login/">Logout</a></li>
+		</ul>
+		{% endblock  %}
+
+        {% block slider %}
+        {% endblock %}
+        {% block page %}
+        <div style="height:250px;">
+			<h4 style="color:blue">welcome to  {{sunm}}</h4>
+        
+        <h2>welcome to postkarde.com,admin pannel</h2>
+        </div>
+        {% endblock  %}
+
+            {% block footer %}
+            {% endblock %}

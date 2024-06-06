@@ -1,0 +1,61 @@
+{% extends 'userhome.html' %}
+{% block menu %}	
+       <ul>
+           <li class="first"><a href="/user/">UserHome</a></li>
+           
+           <!--<li>
+               <span class="opener"><b>Pages</b></span>
+               <ul>
+                   <li><a href="#">Blog</a></li>
+                   <li><a href="#">Portfolio</a></li>
+               </ul>
+           </li>-->
+           <li><a href="/user/funds/">Funds</a></li>
+           {% comment %} <li><a href="/user/addproduct/">Addpro</a></li> {% endcomment %}
+           <li><a href="/user/cpuser/">ChangePass</a></li>
+           <li><a href="/user/edit/">EditPro</a></li>
+           <li><a href="/user/transactions/">Hist</a></li>
+           <li><a href="/user/bid/">bid</a>|
+         <a href="/user/viewbidproduct/">ViewPro</a></li>
+           <li class="last"><a href="/Login/">Logout</a></li></ul>
+       
+           
+    
+       {% endblock  %}
+
+       {% block slider %}
+       {% endblock %}
+       {% block page %}
+       Welcome User : <font color="blue">{{sunm}}</font>
+
+       
+       <div style="height:300px;">
+        <h2>Change Password Here!!!</h2>
+        <font color="blue" style="font-size:20px;">{{output}}</font>
+        <form method="post" action="/user/cpuser/" >
+        {% csrf_token %}
+      <table cellspacing="5" >
+            <fieldset>
+              <legend>Change Password:</legend>
+            <input class="btmspace-15" type="password" name="opass" placeholder="Enter Your old password  Here..">
+             </tr>
+             <br>
+             <input class="btmspace-15" type="Password" name="npass" placeholder="Enter Your  New password Here..">
+             </tds>  
+            </tr>
+              <br>
+              <input class="btmspace-15" type="Password" name="cnpass" placeholder="Enter Your confirm password Here..">
+               </tr>
+               <br>
+              <button type="submit" value="change password">Save Password</button>
+              </br>
+              <br/>
+            </fieldset>
+          </form>
+        
+        
+       </div>
+       {% endblock  %}
+
+           {% block footer %}
+           {% endblock %}
